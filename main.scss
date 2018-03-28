@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'sansation';
+  src: url('sansation.ttf')
+}
+
+* {
+  font-family: 'sansation';
+  font-size: 20px;
+  color: #DDDDDD;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  height: 60%;
+  width: 100%;
+  min-width: 200px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div {
+    height: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+
+    label {
+      transition: font-size 1s;
+    }
+
+    input {
+      width: 70%;
+      border: none;
+      border-bottom: 1px solid #AAAAAA;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid #111111;
+      }
+
+      &:focus + label {
+        color: #111111;
+        animation: move 5000s;
+        font-size: 17px;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translatex(0px) translatey(0px)
+        }
+        0.02% {
+          transform: translatex(0px) translatey(-25px)
+        }
+        0.021%, 100% {
+          transform: translatex(0px) translatey(-25px)
+        }
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+    margin: 50px 0 0 0;
+    width: 100%;
+
+    button {
+      height: 50px;
+      width: 50%;
+      display: inline-block;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 100px;
+      background-color: #00c8b3;
+      color: #ffffff;
+
+      &:disabled {
+        color: #dddcdc;
+        background-color: #f6f6f6;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
