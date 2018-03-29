@@ -8,24 +8,28 @@
     <body>
         <form name="user-register">
             <div class="name">
-                <input type="text" id="name">
-                <label for="name">Nome Completo (sem abreviações)</label>
+                <label id="erro-name"></label>
+                <input type="text" id="name-input">
+                <label for="name-input">Nome Completo (sem abreviações)</label>
             </div>
             <div class="cpf">
-                <input type="text" id="cpf">
-                <label for="cpf">CPF</label>
+                <label id="erro-cpf"></label>
+                <input type="text" id="cpf-input">
+                <label for="cpf-input">CPF</label>
             </div>
-            <div class="telefone">
-                <input type="text" id="telefone">
-                <label for="telefone">Telefone</label>
+            <div class="phone">
+                <label id="erro-phone"></label>
+                <input type="text" id="phone-input">
+                <label for="phone-input">Telefone</label>
             </div>
             <div class="email">
-                <input type="text" id="email">
-                <label for="email">Email</label>
+                <label id="erro-email"></label>
+                <input type="text" id="email-input">
+                <label for="email-input">Email</label>
             </div>
 
           <footer>
-            <button class="button" disabled>Cadastrar</button>
+            <button class="button">Cadastrar</button>
           </footer>
         </form>
 
