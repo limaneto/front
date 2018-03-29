@@ -13,7 +13,7 @@
 
   if (self && self.self) {
     window.easyInvest = window.easyInvest || {};
-    window.easyInvest.models = window.easyInvest.models || [];
-    window.easyInvest.models.push({ User: User });
+    window.easyInvest.models = window.easyInvest.models || {};
+    window.easyInvest.models.User = User;
   }
 })();
