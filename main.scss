@@ -86,10 +86,12 @@ form {
       &:disabled {
         color: #dddcdc;
         background-color: #f6f6f6;
+        cursor: not-allowed;
       }
 
       &:hover {
         opacity: 0.7;
+        cursor: pointer;
       }
     }
   }
