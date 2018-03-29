@@ -11,5 +11,7 @@
     let phone = document.getElementById('phone-input').value.trim()
     let email = document.getElementById('email-input').value.trim()
 
+    let user = new window.easyInvest.models.User(name, cpf, phone, email)
+    window.easyInvest.utils.saveUser(user)
   }
 })()
