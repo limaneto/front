@@ -15,13 +15,29 @@
     if (isUserRegistered(user)) {
       alert('Email already in use.')
     } else {
-      let users = JSON.parse(localStorage.getItem('users')) || [];
+      let users = getUsers();
       users.push(user)
       localStorage.setItem('users', JSON.stringify(users));
     }
   }
 
+  let removeUser = userToRemove => {
+    if (!localStorage.getItem('users')) {
+      alert('There is no user registered.')
+    } else {
+      let users = getUsers();
+      users = users.filter(user => {
+        return user.email !== userToRemove.email
+      })
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+  }
+
+  let isUserRegistered = (userToRegister) => {
+    return typeof getUsers().find((user) => { return user.email === userToRegister.email }) !== 'undefined'
+  }
+
   if (self && self.self) {
-    window.easyInvest.utils = { saveUser, getUsers }
+    window.easyInvest.utils = { saveUser, removeUser, getUsers }
   }
 })();
