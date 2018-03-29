@@ -18,6 +18,11 @@
       let users = getUsers();
       users.push(user)
       localStorage.setItem('users', JSON.stringify(users));
+      if (isUserRegistered(user)) {
+        alert('User registered successfully.')
+      } else {
+        alert('Was not possible to register the User.')
+      }
     }
   }
 
@@ -38,6 +43,6 @@
   }
 
   if (self && self.self) {
-    window.easyInvest.utils = { saveUser, removeUser, getUsers }
+    window.easyInvest.utils = { saveUser, removeUser, getUsers, isUserRegistered }
   }
 })();
