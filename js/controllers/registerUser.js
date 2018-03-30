@@ -22,7 +22,7 @@
 
   let maintainAnimation = e => {
     let element = document.getElementById('name-input').nextElementSibling
-    element.style['margin-bottom'] = '50px'
+    // element.style.margin = '0px 0px 6px'
   }
 
   let registerEventListener = () => {

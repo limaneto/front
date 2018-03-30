@@ -25,36 +25,28 @@ html, body {
   justify-content: center; }
   #container form {
     height: 100%;
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between; }
     #container form > div {
-      height: 50px;
+      width: 80%;
       display: flex;
       flex-direction: column-reverse;
-      align-items: center; }
+      align-items: baseline; }
       #container form > div label {
-        transition: font-size 5s;
-        color: #efeeed; }
+        transition: all 0.5s;
+        color: #333333; }
       #container form > div input {
-        width: 70%;
+        width: 100%;
         border: none;
-        border-bottom: 1px solid #efeeed; }
+        border-bottom: 1px solid #333333; }
         #container form > div input:focus {
           outline: none; }
           #container form > div input:focus + label {
             color: #333333;
-            -webkit-animation: move linear 5s;
             font-size: 17px; }
-
-@keyframes move {
-  0% {
-    -webkit-transform: translateY(0px); }
-  20% {
-    -webkit-transform: translateY(-50px); }
-  100% {
-    -webkit-transform: translateY(-50px); } }
     #container form footer {
       height: 20%; }
       #container form footer > a {

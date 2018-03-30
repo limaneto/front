@@ -51,42 +51,37 @@ html, body {
 
   form {
     height: 100%;
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 
     > div {
-      height: 50px;
+      width: 80%;
       display: flex;
       flex-direction: column-reverse;
-      align-items: center;
-
+      align-items: baseline;
 
       label {
-        transition: font-size 5s;
-        color: #efeeed;
+        transition: all 0.5s;
+        //color: #efeeed;
+        color: #333333;
       }
 
       input {
-        width: 70%;
+        width: 100%;
         border: none;
-        border-bottom: 1px solid #efeeed;
+        //border-bottom: 1px solid #efeeed;
+        border-bottom: 1px solid #333333;
 
         &:focus {
           outline: none;
 
           + label {
             color: #333333;
-            -webkit-animation: move linear 5s;
             font-size: 17px;
           }
-        }
-
-        @keyframes move {
-          0% { -webkit-transform: translateY(0px) }
-          20% { -webkit-transform: translateY(-50px) }
-          100% { -webkit-transform: translateY(-50px) }
         }
       }
     }
