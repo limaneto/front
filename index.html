@@ -3,39 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Easy Invest</title>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     </head>
     <body>
-        <form name="user-register">
-            <div class="name">
-                <label id="erro-name"></label>
-                <input type="text" id="name-input">
-                <label for="name-input">Nome Completo (sem abreviações)</label>
-            </div>
-            <div class="cpf">
-                <label id="erro-cpf"></label>
-                <input type="text" id="cpf-input">
-                <label for="cpf-input">CPF</label>
-            </div>
-            <div class="phone">
-                <label id="erro-phone"></label>
-                <input type="text" id="phone-input">
-                <label for="phone-input">Telefone</label>
-            </div>
-            <div class="email">
-                <label id="erro-email"></label>
-                <input type="text" id="email-input">
-                <label for="email-input">Email</label>
-            </div>
-
-          <footer>
-            <button class="button">Cadastrar</button>
-          </footer>
-        </form>
-
-        <script src="index.js"></script>
-        <script src="models/user.js"></script>
-        <script src="utils/db.js"></script>
-        <script src="controllers/register.js"></script>
+        <div id="container"></div>
+        <script src="js/models/user.js"></script>
+        <script src="js/controllers/usersListView.js"></script>
+        <script src="js/controllers/registerForm.js"></script>
+        <script src="js/controllers/editProfile.js"></script>
+        <script src="js/templates/registerForm.js"></script>
+        <script src="js/templates/userList.js"></script>
+        <script src="js/templates/footerRegister.js"></script>
+        <script src="js/templates/footerEditProfile.js"></script>
+        <script src="js/utils/db.js"></script>
+        <script src="js/utils/utils.js"></script>
+        <script src="init.js"></script>
     </body>
 </html>
