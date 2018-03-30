@@ -33,5 +33,5 @@
 
 
   window.views = window.views || {}
-  window.views.userRegister = { render }
+  window.views.registerUser = { render }
 })()

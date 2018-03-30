@@ -5,7 +5,7 @@
   let router = () => {
     let page = window.location.hash.slice(1)
     if (page === '') {
-      window.views.userRegister.render()
+      window.views.registerUser.render()
     } else {
       let urlAndQueryString = page.split('?')
       page = urlAndQueryString[0];
