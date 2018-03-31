@@ -22,16 +22,13 @@
 
   let maintainAnimation = (e) => {
     let element = e.target.nextElementSibling
-    if (e.target.value !== '') {
-      element.style.margin = '-35px 0px 0px 0px'
-      element.style.color = '#333333'
-      element.style['font-size'] = '15px'
+    if (e.target.value !== '' && window.location.hash !== '#usersList') {
+      element.id = "label-up"
     }
   }
 
   let registerEventListener = () => {
     document['user-register'].addEventListener('submit', registerUser)
-    document.querySelector('footer > button').addEventListener('click', registerUser)
     document.getElementsByTagName('form')[0].addEventListener('blur', maintainAnimation, true)
   }
 
