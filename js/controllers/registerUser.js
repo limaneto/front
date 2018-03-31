@@ -20,15 +20,19 @@
     window.easyInvest.db.saveUser(user)
   }
 
-  let maintainAnimation = e => {
-    let element = document.getElementById('name-input').nextElementSibling
-    // element.style.margin = '0px 0px 6px'
+  let maintainAnimation = (e) => {
+    let element = e.target.nextElementSibling
+    if (e.target.value !== '') {
+      element.style.margin = '-35px 0px 0px 0px'
+      element.style.color = '#333333'
+      element.style['font-size'] = '15px'
+    }
   }
 
   let registerEventListener = () => {
     document['user-register'].addEventListener('submit', registerUser)
     document.querySelector('footer > button').addEventListener('click', registerUser)
-    document.getElementById('name-input').nextElementSibling.addEventListener('webkitTransitionEnd', maintainAnimation, false)
+    document.getElementsByTagName('form')[0].addEventListener('blur', maintainAnimation, true)
   }
 
 

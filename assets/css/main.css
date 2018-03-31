@@ -31,12 +31,15 @@ html, body {
     align-items: center;
     justify-content: space-between; }
     #container form > div {
+      height: 10%;
       width: 80%;
+      position: relative;
       display: flex;
       flex-direction: column-reverse;
       align-items: baseline; }
       #container form > div label {
-        transition: all 0.5s;
+        transition: all 0.4s;
+        position: absolute;
         color: #333333; }
       #container form > div input {
         width: 100%;
@@ -46,9 +49,11 @@ html, body {
           outline: none; }
           #container form > div input:focus + label {
             color: #333333;
-            font-size: 17px; }
+            font-size: 15px;
+            margin-top: -35px; }
     #container form footer {
-      height: 20%; }
+      height: 20%;
+      width: 80%; }
       #container form footer > a {
         display: block;
         margin-top: 30px; }
