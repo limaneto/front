@@ -1,24 +1,22 @@
+window.easyInvest.utils =
 (function () {
-  window.utils = window.utils || {}
-  window.utils.router = window.utils.router || {}
-
-  let router = () => {
+  this.router = () => {
     let page = window.location.hash.slice(1)
     if (page === '') {
-      window.views.registerUser.render()
+      window.easyInvest.views.registerUser().init()
     } else {
       let urlAndQueryString = page.split('?')
       page = urlAndQueryString[0];
       if (urlAndQueryString.length > 1) {
         let queryString = getParams(urlAndQueryString[1])
-        window.views[page].render(queryString)
+        window.easyInvest.views[page].init(queryString)
       } else {
-        window.views[page].render()
+        window.easyInvest.views[page].init()
       }
     }
   }
 
-  let getParams = (queryString) => {
+  this.getParams = (queryString) => {
     let params = {}
     let paramsArray = queryString.split('&')
     paramsArray.forEach(item => {
@@ -29,6 +27,7 @@
     return params
   }
 
-  window.utils = window.utils || { }
-  window.utils.router = router
+  return {
+    router, getParams
+  }
 })()
