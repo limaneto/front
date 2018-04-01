@@ -20,19 +20,14 @@ window.easyInvest.views.registerUser =
         let email = document.getElementById('email-input').value.trim()
 
         let user = new window.easyInvest.models.User(name, cpf, phone, email)
-        window.easyInvest.db.saveUser(user)
-      }
-
-      this.maintainAnimation = (e) => {
-        let element = e.target.nextElementSibling
-        if (e.target.value !== '' && window.location.hash !== '#usersList') {
-          element.id = "label-up"
+        if (window.easyInvest.utils.isRegisterFormValid()) {
+          window.easyInvest.db.saveUser(user)
         }
       }
 
       this.registerEventListener = () => {
-        document['user-register'].addEventListener('submit', registerUser)
-        document.getElementsByTagName('form')[0].addEventListener('blur', this.maintainAnimation, true)
+        document['user-register'].addEventListener('submit', this.registerUser)
+        document.getElementsByTagName('form')[0].addEventListener('blur', window.easyInvest.utils.inputLostFocus, true)
       }
   }
 

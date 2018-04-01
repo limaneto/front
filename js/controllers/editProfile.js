@@ -22,19 +22,19 @@ window.easyInvest.views.editProfile =
   }
 
     this.fillForm = (user) => {
-    document.getElementById('name-input').value = user.name
-    document.getElementById('cpf-input').value = user.cpf
-    document.getElementById('phone-input').value = user.phone
-    document.getElementById('email-input').value = user.email
+      document.getElementById('name-input').value = user.name
+      document.getElementById('cpf-input').value = user.cpf
+      document.getElementById('phone-input').value = user.phone
+      document.getElementById('email-input').value = user.email
   }
 
     this.getData = () => {
-    let name = document.getElementById('name-input').value.trim()
-    let cpf = document.getElementById('cpf-input').value.trim()
-    let phone = document.getElementById('phone-input').value.trim()
-    let email = document.getElementById('email-input').value.trim()
+      let name = document.getElementById('name-input').value.trim()
+      let cpf = document.getElementById('cpf-input').value.trim()
+      let phone = document.getElementById('phone-input').value.trim()
+      let email = document.getElementById('email-input').value.trim()
 
-    return {name, cpf, phone, email}
+      return {name, cpf, phone, email}
   }
 
     this.editUser = (e) => {
@@ -55,6 +55,7 @@ window.easyInvest.views.editProfile =
 
     this.registerEventListener = () => {
       document['user-register'].addEventListener('submit', this.editUser)
+      document.getElementsByTagName('form')[0].addEventListener('blur', window.easyInvest.utils.inputLostFocus, true)
       document.querySelector('footer button#edit').addEventListener('click', this.editUser)
       document.querySelector('footer button#delete').addEventListener('click', this.removeUser)
     }
