@@ -6,15 +6,15 @@ window.templates.registerFormTemplate = function (user) {
         <label for="name-input">Nome Completo (sem abreviações)</label>
       </div>
       <div class="cpf">
-        <input type="text" id="cpf-input" autocomplete="of">
+        <input type="number" id="cpf-input" autocomplete="of">
         <label for="cpf-input">CPF</label>
       </div>
       <div class="phone">
-        <input type="text" id="phone-input" autocomplete="of">
+        <input type="tel" id="phone-input" autocomplete="of">
         <label for="phone-input">Telefone</label>
       </div>
       <div class="email">
-        <input type="text" id="email-input" autocomplete="of">
+        <input type="email" id="email-input" autocomplete="of">
         <label for="email-input">Email</label>
       </div>
       <footer>
