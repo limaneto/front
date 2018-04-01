@@ -12,7 +12,7 @@
 
     let userDetail = (e) => {
       if (e.target.nodeName === 'LABEL') {
-        window.location.hash = 'editProfile?email=' + e.target.parent2Element.getAttribute('data-id')
+        window.location.hash = 'editProfile?email=' + e.target.parentElement.getAttribute('data-id')
       }
     }
 
