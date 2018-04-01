@@ -71,7 +71,7 @@ window.easyInvest.utils =
     if (e.target.value !== '' && window.location.hash !== '#usersList') {
       element.id = "label-up"
     } else {
-      if (element.id === 'label-up') {
+      if (element.id && element.id === 'label-up') {
         element.removeAttribute('id')
       }
     }
