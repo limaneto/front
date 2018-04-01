@@ -48,9 +48,9 @@
     }
   }
 
-  let editUser = user => {
-    removeUser()
-    saveUser()
+  let editUser = (oldUser, user) => {
+    removeUser(oldUser)
+    saveUser(user)
   }
 
   let isUserRegistered = (userToRegister) => {
