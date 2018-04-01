@@ -64,7 +64,7 @@ html, body {
       display: flex;
       flex-direction: column-reverse;
       align-items: baseline;
-      
+
       label {
         transition: all 0.4s;
         position: absolute;
@@ -159,6 +159,12 @@ html, body {
     border-radius: 100%;
     -webkit-animation: spin 8s linear infinite;
   }
+}
+
+#label-up {
+  margin: -35px 0px 0px 0px;
+  color: #333333;
+  font-size: 15px;
 }
 
 @keyframes spin {
