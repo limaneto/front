@@ -2,16 +2,19 @@ window.easyInvest.utils =
 (function () {
   this.router = () => {
     let page = window.location.hash.slice(1)
+    let pages = window.easyInvest.views
     if (page === '') {
-      window.easyInvest.views.registerUser.init()
+      pages.registerUser.init()
+    } else if (!Object.keys(pages).find((pageUrl) => pageUrl === page)) {
+      document.getElementById('container').innerHTML = window.easyInvest.views['404']()
     } else {
       let urlAndQueryString = page.split('?')
       page = urlAndQueryString[0];
       if (urlAndQueryString.length > 1) {
         let queryString = getParams(urlAndQueryString[1])
-        window.easyInvest.views[page].init(queryString)
+        pages[page].init(queryString)
       } else {
-        window.easyInvest.views[page].init()
+        pages[page].init()
       }
     }
   }
@@ -46,7 +49,7 @@ window.easyInvest.utils =
     } else if (/^\d+$/.test(phone)) {
       this.appendErrorMessageToElement(phoneInput, 'Phone cannot contain letters.')
       return false;
-    } else if (this.validateEmail(email)) {
+    } else if (email.length > 3 && this.validateEmail(email)) {
       this.appendErrorMessageToElement(emailInput, 'Invalid email.')
       return false;
     }
