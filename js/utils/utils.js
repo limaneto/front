@@ -3,7 +3,7 @@ window.easyInvest.utils =
   this.router = () => {
     let page = window.location.hash.slice(1)
     if (page === '') {
-      window.easyInvest.views.registerUser().init()
+      window.easyInvest.views.registerUser.init()
     } else {
       let urlAndQueryString = page.split('?')
       page = urlAndQueryString[0];
