@@ -1,8 +1,7 @@
 (function () {
     let render = function () {
       let users = window.easyInvest.db.getUsers()
-      let userListViewTemplate = window.templates.userListTemplate(users)
-      document.getElementById('container').innerHTML = userListViewTemplate
+      document.getElementById('container').innerHTML = window.templates.userListTemplate(users)
 
       registerEventListeners()
     }
@@ -13,7 +12,7 @@
 
     let userDetail = (e) => {
       if (e.target.nodeName === 'LABEL') {
-        window.location.hash = 'editProfile?email=' + e.target.parentElement.getAttribute('data-id')
+        window.location.hash = 'editProfile?email=' + e.target.parent2Element.getAttribute('data-id')
       }
     }
 
