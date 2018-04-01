@@ -1,61 +1,69 @@
-(function () {
-
-  let render = function (params) {
+window.easyInvest.views = window.easyInvest.views || {}
+window.easyInvest.views.editProfile =
+(() => {
+  let EditProfile = function (params) {
+    this.render = () => {
     params = params || {}
-    let user = window.easyInvest.db.getUserByEmail(params.email);
-    let editProfileFormView = window.templates.registerFormTemplate(user)
+    params.email = params.email || {}
+    params.user = window.easyInvest.db.getUserByEmail(params.email);
+    let editProfileFormView = window.templates.registerFormTemplate(params.user)
     let footerEditProfileTemplate = window.templates.footerEditProfileTemplate()
 
     document.getElementById('container').innerHTML = editProfileFormView
+    let labels = document.getElementsByTagName('label');
+    for (let i = 0; i < labels.length; i++) {
+      labels[i].setAttribute('id', 'label-up')
+    }
     document.getElementsByTagName('FOOTER')[0].innerHTML = footerEditProfileTemplate;
 
-    fillForm(user)
+    this.fillForm(params.user)
 
-    registerEventListener()
+    this.registerEventListener()
   }
 
-
-  let fillForm = function (user) {
+    this.fillForm = (user) => {
     document.getElementById('name-input').value = user.name
     document.getElementById('cpf-input').value = user.cpf
     document.getElementById('phone-input').value = user.phone
     document.getElementById('email-input').value = user.email
   }
 
-  let getData = function () {
+    this.getData = () => {
     let name = document.getElementById('name-input').value.trim()
     let cpf = document.getElementById('cpf-input').value.trim()
     let phone = document.getElementById('phone-input').value.trim()
     let email = document.getElementById('email-input').value.trim()
 
-    return { name, cpf, phone, email }
+    return {name, cpf, phone, email}
   }
 
-  let editUser = function (e) {
-    e.preventDefault();
+    this.editUser = (e) => {
+      e.preventDefault();
 
-    let formData = getData()
-    let user = new window.easyInvest.models.User(formData.name, formData.cpf, formData.phone, formData.email)
-    window.easyInvest.db.editUser(user)
+      let formData = this.getData()
+      let user = new window.easyInvest.models.User(formData.name, formData.cpf, formData.phone, formData.email)
+      window.easyInvest.db.editUser(params.user, user)
 
-    window.location.hash = 'usersList'
+      window.location.hash = 'usersList'
+    }
+
+    this.removeUser = (e) => {
+      e.preventDefault()
+      window.easyInvest.db.removeUser(params.user)
+      window.location.hash = 'usersList'
+    }
+
+    this.registerEventListener = () => {
+      document['user-register'].addEventListener('submit', this.editUser)
+      document.querySelector('footer button#edit').addEventListener('click', this.editUser)
+      document.querySelector('footer button#delete').addEventListener('click', this.removeUser)
+    }
   }
 
-  let removeUser = function (e) {
-    e.preventDefault()
-
-    let formData = getData()
-    let user = new window.easyInvest.models.User(formData.name, formData.cpf, formData.phone, formData.email)
-    window.easyInvest.db.removeUser(user)
-    window.location.hash = 'usersList'
+  return {
+    init: function (params) {
+      let editProfile = new EditProfile(params)
+      editProfile.render()
+    }
   }
-
-  function registerEventListener () {
-    document['user-register'].addEventListener('submit', editUser)
-    document.querySelector('footer button#edit').addEventListener('click', editUser)
-    document.querySelector('footer button#delete').addEventListener('click', removeUser)
-  }
-
-  window.views = window.views || {}
-  window.views.editProfile = { render }
 })()
