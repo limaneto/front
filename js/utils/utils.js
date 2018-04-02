@@ -31,47 +31,28 @@ window.easyInvest.utils =
   }
 
   this.verifyRegisterForm = (e) => {
-    switch (e.target.getAttribute('id')) {
-      case 'name-input':
-        if (e.target.value.length > 0 && e.target.value.length < 3) {
-          if (e.target.getAttribute('class') !== 'error') {
-            this.appendErrorMessageToElement(e.target, 'Name needs more than 3 letters.')
-          }
-        } else if (e.target.getAttribute('class') === 'error') {
-          e.target.classList.remove('error')
-          e.target.parentNode.lastElementChild.remove()
-        }
-        break;
-      case 'cpf-input':
-        if (e.target.value.length > 0 && e.target.value.length !== 11) {
-          if (e.target.getAttribute('class') !== 'error') {
-            this.appendErrorMessageToElement(e.target, 'CPF can only contain 11 digits.')
-          }
-        } else if (e.target.getAttribute('class') === 'error') {
-          e.target.classList.remove('error')
-          e.target.parentNode.lastElementChild.remove()
-        }
-        break;
-      case 'phone-input':
-        if (e.target.value.length > 0 && !(/^\d+$/.test(e.target.value))) {
-          if (e.target.getAttribute('class') !== 'error') {
-            this.appendErrorMessageToElement(e.target, 'Invalid phone number.')
-          }
-        } else if (e.target.getAttribute('class') === 'error') {
-          e.target.classList.remove('error')
-          e.target.parentNode.lastElementChild.remove()
-        }
-        break;
-      case 'email-input':
-        if (e.target.value.length > 0 && !this.validateEmail(e.target.value)) {
-          if (e.target.getAttribute('class') !== 'error') {
-            this.appendErrorMessageToElement(e.target, 'Invalid email.')
-          }
-        } else if (e.target.getAttribute('class') === 'error') {
-          e.target.classList.remove('error')
-          e.target.parentNode.lastElementChild.remove()
-        }
-        break;
+    let input = e.target
+    let inputName = e.target.getAttribute('id')
+
+    if (inputName === 'name-input' && input.value.length > 0 && input.value.length < 3) {
+      if (input.getAttribute('class') !== 'error') {
+        this.appendErrorMessageToElement(input, 'Name needs more than 3 letters.')
+      }
+    } else if (inputName === 'cpf-input' && input.value.length > 0 && input.value.length !== 11) {
+      if (input.getAttribute('class') !== 'error') {
+        this.appendErrorMessageToElement(input, 'CPF can only contain 11 digits.')
+      }
+    } else if (inputName === 'phone-input' && input.value.length > 0 && !(/^\d+$/.test(input.value))) {
+      if (input.getAttribute('class') !== 'error') {
+        this.appendErrorMessageToElement(input, 'Invalid phone number.')
+      }
+    } else if (inputName === 'email-input' && input.value.length > 0 && !this.validateEmail(input.value)) {
+      if (input.getAttribute('class') !== 'error') {
+        this.appendErrorMessageToElement(input, 'Invalid email.')
+      }
+    } else if (input.getAttribute('class') === 'error') {
+      input.classList.remove('error')
+      input.parentNode.lastElementChild.remove()
     }
   }
 
