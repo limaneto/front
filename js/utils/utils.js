@@ -30,37 +30,56 @@ window.easyInvest.utils =
     return params
   }
 
-  this.isRegisterFormValid = () => {
-    let nameInput = document.getElementById('name-input')
-    let name = nameInput.value.trim()
-    let cpfInput = document.getElementById('cpf-input')
-    let cpf = cpfInput.value.trim()
-    let phoneInput = document.getElementById('phone-input')
-    let phone = phoneInput.value.trim()
-    let emailInput = document.getElementById('email-input')
-    let email = emailInput.value.trim()
-
-    if (name.length < 3) {
-      this.appendErrorMessageToElement(nameInput, 'Name needs more than 3 letters.')
-      return false;
-    } else if (cpf.length !== 11) {
-      this.appendErrorMessageToElement(cpfInput, 'CPF can only contain 11 digits.')
-      return false;
-    } else if (/^\d+$/.test(phone)) {
-      this.appendErrorMessageToElement(phoneInput, 'Phone cannot contain letters.')
-      return false;
-    } else if (email.length > 3 && this.validateEmail(email)) {
-      this.appendErrorMessageToElement(emailInput, 'Invalid email.')
-      return false;
+  this.verifyRegisterForm = (e) => {
+    switch (e.target.getAttribute('id')) {
+      case 'name-input':
+        if (e.target.value.length > 0 && e.target.value.length < 3) {
+          if (e.target.getAttribute('class') !== 'error') {
+            this.appendErrorMessageToElement(e.target, 'Name needs more than 3 letters.')
+          }
+        } else if (e.target.getAttribute('class') === 'error') {
+          e.target.classList.remove('error')
+          e.target.parentNode.lastElementChild.remove()
+        }
+        break;
+      case 'cpf-input':
+        if (e.target.value.length > 0 && e.target.value.length !== 11) {
+          if (e.target.getAttribute('class') !== 'error') {
+            this.appendErrorMessageToElement(e.target, 'CPF can only contain 11 digits.')
+          }
+        } else if (e.target.getAttribute('class') === 'error') {
+          e.target.classList.remove('error')
+          e.target.parentNode.lastElementChild.remove()
+        }
+        break;
+      case 'phone-input':
+        if (e.target.value.length > 0 && !(/^\d+$/.test(e.target.value))) {
+          if (e.target.getAttribute('class') !== 'error') {
+            this.appendErrorMessageToElement(e.target, 'Invalid phone number.')
+          }
+        } else if (e.target.getAttribute('class') === 'error') {
+          e.target.classList.remove('error')
+          e.target.parentNode.lastElementChild.remove()
+        }
+        break;
+      case 'email-input':
+        if (e.target.value.length > 0 && !this.validateEmail(e.target.value)) {
+          if (e.target.getAttribute('class') !== 'error') {
+            this.appendErrorMessageToElement(e.target, 'Invalid email.')
+          }
+        } else if (e.target.getAttribute('class') === 'error') {
+          e.target.classList.remove('error')
+          e.target.parentNode.lastElementChild.remove()
+        }
+        break;
     }
-
-    return true;
   }
 
   this.appendErrorMessageToElement = (element, message) => {
     let errorTemplate = window.easyInvest.templates.validationError(message)
-    element.classList.add('error')
     element.parentNode.insertAdjacentHTML('beforeend', errorTemplate)
+    element.classList.add('error')
+    element.parentNode.lastElementChild.classList.add('error')
   }
 
   this.validateEmail = (email) => {
@@ -78,15 +97,10 @@ window.easyInvest.utils =
         element.removeAttribute('id')
       }
     }
-
-    // remove the error span
-    if(e.target.value === '' && e.target.getAttribute('class') === 'error') {
-      e.target.classList.toggle('error')
-      element.nextElementSibling.remove()
-    }
+    window.easyInvest.utils.verifyRegisterForm(e)
   }
 
   return {
-    router, getParams, isRegisterFormValid, inputLostFocus
+    router, getParams, verifyRegisterForm, inputLostFocus
   }
 })()

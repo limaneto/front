@@ -20,9 +20,7 @@ window.easyInvest.views.registerUser =
         let email = document.getElementById('email-input').value.trim()
 
         let user = new window.easyInvest.models.User(name, cpf, phone, email)
-        if (window.easyInvest.utils.isRegisterFormValid()) {
-          window.easyInvest.db.saveUser(user)
-        }
+        window.easyInvest.db.saveUser(user)
       }
 
       this.registerEventListener = () => {

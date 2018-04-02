@@ -20,7 +20,8 @@ window.easyInvest.db =
         users.push(user)
         localStorage.setItem('users', JSON.stringify(users));
         if (isUserRegistered(user)) {
-          alert('User info saved.')
+          document.body.insertAdjacentHTML('afterbegin', window.easyInvest.templates.topModal('User info saved.'))
+          document.getElementById('top-modal').setAttribute('class', 'success-modal')
           window.location.hash = 'usersList'
         } else {
           alert('Was not possible to save User info.')

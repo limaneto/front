@@ -2,7 +2,7 @@ window.templates = window.templates || {};
 window.templates.registerFormTemplate = function (user) {
   return `<form name="user-register">
       <div class="name">
-        <input type="text" id="name-input" autocomplete="of">
+        <input type="text" name="name-input" id="name-input" autocomplete="of">
         <label for="name-input">Nome Completo (sem abreviações)</label>
       </div>
       <div class="cpf">
