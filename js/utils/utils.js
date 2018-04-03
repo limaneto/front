@@ -5,7 +5,7 @@ window.easyInvest.utils =
     let pages = window.easyInvest.views
     if (page === '') {
       pages.registerUser.init()
-    } else if (!Object.keys(pages).find((pageUrl) => pageUrl === page)) {
+    } else if (!Object.keys(pages).find((pageUrl) => page.indexOf(pageUrl) === -1 )) {
       document.getElementById('container').innerHTML = window.easyInvest.views['404']()
     } else {
       let urlAndQueryString = page.split('?')
