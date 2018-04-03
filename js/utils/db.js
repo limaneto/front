@@ -48,7 +48,7 @@ window.easyInvest.db =
         if (getUserByEmail(userToRemove.email)) {
           showTopModal('Was not possible to remove user.', 'error-modal')
         } else {
-          showTopModal('User removed successfully.', 'error-modal')
+          showTopModal('User removed successfully.', 'success-modal')
         }
       }
     }
