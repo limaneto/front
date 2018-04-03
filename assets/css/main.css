@@ -118,9 +118,11 @@ html, body {
           color: #dddcdc;
           background-color: #f6f6f6;
           cursor: not-allowed; }
-        #container form footer > button:hover {
+        #container form footer > button:not(:focus):hover {
           opacity: 0.7;
           cursor: pointer; }
+        #container form footer > button:focus {
+          outline: none; }
       #container form footer div.edit-profile-section {
         height: 100%; }
         #container form footer div.edit-profile-section > button {
@@ -138,9 +140,11 @@ html, body {
             color: #dddcdc;
             background-color: #f6f6f6;
             cursor: not-allowed; }
-          #container form footer div.edit-profile-section > button:hover {
+          #container form footer div.edit-profile-section > button:not(:focus):hover {
             opacity: 0.7;
             cursor: pointer; }
+          #container form footer div.edit-profile-section > button:focus {
+            outline: none; }
           @media all and (max-width: 30em) {
             #container form footer div.edit-profile-section > button {
               height: 50px;
@@ -158,9 +162,11 @@ html, body {
                 color: #dddcdc;
                 background-color: #f6f6f6;
                 cursor: not-allowed; }
-              #container form footer div.edit-profile-section > button:hover {
+              #container form footer div.edit-profile-section > button:not(:focus):hover {
                 opacity: 0.7;
-                cursor: pointer; } }
+                cursor: pointer; }
+              #container form footer div.edit-profile-section > button:focus {
+                outline: none; } }
         #container form footer div.edit-profile-section > a {
           display: block;
           margin-top: 30px; }
