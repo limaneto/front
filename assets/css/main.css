@@ -27,7 +27,8 @@ html, body {
     html > div.success-modal > h4, body > div.success-modal > h4 {
       color: white;
       position: absolute;
-      left: 10px; }
+      left: 10px;
+      cursor: pointer; }
   html > div.error-modal, body > div.error-modal {
     width: 100%;
     height: 50px;
@@ -41,7 +42,8 @@ html, body {
     html > div.error-modal > h4, body > div.error-modal > h4 {
       color: white;
       position: absolute;
-      left: 10px; }
+      left: 10px;
+      cursor: pointer; }
 
 #container {
   height: 65%;

@@ -14,24 +14,30 @@ window.easyInvest.db =
 
     let saveUser = user => {
       if (isUserRegistered(user)) {
-        alert('Email already in use.')
+        showTopModal('There is no user registered.', 'error-modal')
       } else {
         let users = getUsers();
         users.push(user)
         localStorage.setItem('users', JSON.stringify(users));
         if (isUserRegistered(user)) {
-          document.body.insertAdjacentHTML('afterbegin', window.easyInvest.templates.topModal('User info saved.'))
-          document.getElementById('top-modal').setAttribute('class', 'success-modal')
+          showTopModal('User info saved.', 'success-modal')
           window.location.hash = 'usersList'
         } else {
-          alert('Was not possible to save User info.')
+          showTopModal('Not possible to save user info.', 'error-modal')
+          window.location.hash = 'usersList'
         }
       }
     }
 
+    let addTopModalEventListener = () => {
+      document.querySelector('body #top-modal > h4').addEventListener('click', () => {
+        document.querySelector('body #top-modal').remove()
+      })
+    }
+
     let removeUser = userToRemove => {
       if (!localStorage.getItem('users')) {
-        alert('There is no user registered.')
+        showTopModal('There is no user registered.', 'error-modal')
       } else {
         let users = getUsers();
         users = users.filter(user => {
@@ -40,11 +46,17 @@ window.easyInvest.db =
         localStorage.setItem('users', JSON.stringify(users));
 
         if (getUserByEmail(userToRemove.email)) {
-          alert('Was not possible to remove user.')
+          showTopModal('Was not possible to remove user.', 'error-modal')
         } else {
-          alert('User removed successfully.')
+          showTopModal('User removed successfully.', 'error-modal')
         }
       }
+    }
+
+    let showTopModal = (message, messageType) => {
+      document.body.insertAdjacentHTML('afterbegin', window.easyInvest.templates.topModal(message))
+      document.getElementById('top-modal').setAttribute('class', messageType)
+      addTopModalEventListener()
     }
 
     let editUser = (oldUser, user) => {
