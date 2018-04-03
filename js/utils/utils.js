@@ -74,6 +74,12 @@ window.easyInvest.utils =
     this.disabled = value;
   }
 
+  this.showSpinner = (e) => {
+    let button = document.querySelector('footer > button')
+    button.innerHTML = ''
+    button.parentNode.insertAdjacentHTML('afterbegin', window.easyInvest.templates.spinner())
+  }
+
   this.appendErrorMessageToElement = (element, message) => {
     let errorTemplate = window.easyInvest.templates.validationError(message)
     element.parentNode.insertAdjacentHTML('beforeend', errorTemplate)
@@ -100,6 +106,6 @@ window.easyInvest.utils =
   }
 
   return {
-    router, getParams, verifyRegisterForm, inputLostFocus
+    router, getParams, verifyRegisterForm, inputLostFocus, showSpinner
   }
 })()

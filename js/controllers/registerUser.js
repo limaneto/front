@@ -13,14 +13,19 @@ window.easyInvest.views.registerUser =
 
       this.registerUser = e => {
         e.preventDefault();
+        window.easyInvest.utils.showSpinner()
 
-        let name = document.getElementById('name-input').value.trim()
-        let cpf = document.getElementById('cpf-input').value.trim()
-        let phone = document.getElementById('phone-input').value.trim()
-        let email = document.getElementById('email-input').value.trim()
 
-        let user = new window.easyInvest.models.User(name, cpf, phone, email)
-        window.easyInvest.db.saveUser(user)
+        // I am using set time out here so we can see the button spinner in action
+        setTimeout(function () {
+          let name = document.getElementById('name-input').value.trim()
+          let cpf = document.getElementById('cpf-input').value.trim()
+          let phone = document.getElementById('phone-input').value.trim()
+          let email = document.getElementById('email-input').value.trim()
+
+          let user = new window.easyInvest.models.User(name, cpf, phone, email)
+          window.easyInvest.db.saveUser(user)
+        }, 4000)
       }
 
       this.registerEventListener = () => {
