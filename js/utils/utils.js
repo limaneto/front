@@ -54,6 +54,24 @@ window.easyInvest.utils =
       input.classList.remove('error')
       input.parentNode.lastElementChild.remove()
     }
+
+    if (this.shouldEnableButton()) {
+      this.toggleButton.call(document.querySelector('form > footer > button'), false)
+    } else {
+      this.toggleButton.call(document.querySelector('form > footer > button'), true)
+    }
+  }
+
+  this.shouldEnableButton = () => {
+    return document.getElementById('name-input').value.length !== 0 &&
+      document.getElementById('cpf-input').value.length !== 0 &&
+      document.getElementById('phone-input').value.length !== 0 &&
+      document.getElementById('email-input').value.length !== 0 &&
+      document.getElementsByTagName('span').length === 0
+    }
+
+  this.toggleButton = function (value) {
+    this.disabled = value;
   }
 
   this.appendErrorMessageToElement = (element, message) => {
