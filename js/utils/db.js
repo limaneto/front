@@ -14,7 +14,7 @@ window.easyInvest.db =
 
     let saveUser = user => {
       if (isUserRegistered(user)) {
-        showTopModal('There is no user registered.', 'error-modal')
+        showTopModal('Email already used.', 'error-modal')
       } else {
         let users = getUsers();
         users.push(user)
