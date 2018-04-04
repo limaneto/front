@@ -2,3 +2,5 @@
 node_modules/
 .idea/
 /src/assets/css/main.css
+.DS_Store
+dist/
