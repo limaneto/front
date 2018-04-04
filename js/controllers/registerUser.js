@@ -13,6 +13,8 @@ window.easyInvest.views.registerUser =
 
       this.registerUser = e => {
         e.preventDefault();
+        document.querySelector('form > footer').style.pointerEvents = 'none'
+
         window.easyInvest.utils.showSpinner()
 
 
