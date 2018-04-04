@@ -10,8 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
+    "webpack": "4.4.1",
     "node-sass": "4.8.3"
+  },
+  "dependencies": {
   }
 }
