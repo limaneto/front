@@ -47,7 +47,6 @@
 @mixin base-input {
   width: 100%;
   border: none;
-  //border-bottom: 1px solid #efeeed;
   border-bottom: 1px solid #333333;
 
   &:focus {
@@ -63,7 +62,7 @@
 
 @font-face {
   font-family: 'sansation';
-  src: url('../../sansation.ttf')
+  src: url('sansation.ttf');
 }
 
 * {
@@ -120,8 +119,7 @@ html, body {
       > label {
         transition: all 0.4s;
         position: absolute;
-        //color: #efeeed;
-        color: #333333;
+        color: #efeeed;
       }
 
       > input.error {

@@ -1,5 +1,4 @@
-window.templates = window.templates || {};
-window.templates.registerFormTemplate = function (user) {
+export default (user) => {
   return `<form name="user-register">
       <div class="name">
         <input type="text" name="name-input" id="name-input" autocomplete="of">

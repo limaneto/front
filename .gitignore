@@ -1,4 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 node_modules/
 .idea/
-/assets/css/main.css
+/src/assets/css/main.css
