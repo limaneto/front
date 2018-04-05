@@ -33,7 +33,7 @@ let RegisterUser = function () {
 
   this.registerEventListener = () => {
     document['user-register'].addEventListener('submit', this.registerUser)
-    document.getElementsByTagName('form')[0].addEventListener('blur', utils.inputLostFocus, true)
+    document.getElementsByTagName('input')[0].addEventListener('change', utils.inputLostFocus, true)
   }
 }
 
