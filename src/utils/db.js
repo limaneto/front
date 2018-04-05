@@ -59,7 +59,15 @@ let showTopModal = (message, messageType) => {
 }
 
 let editUser = (oldUser, user) => {
-  removeUser(oldUser)
+  if (!localStorage.getItem('users')) {
+    showTopModal('There is no user registered.', 'error-modal')
+  } else {
+    let users = getUsers();
+    users = users.filter(user => {
+      return user.email !== oldUser.email
+    })
+    localStorage.setItem('users', JSON.stringify(users));
+  }
   saveUser(user)
 }
 
