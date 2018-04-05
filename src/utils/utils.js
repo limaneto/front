@@ -37,19 +37,19 @@ let verifyRegisterForm = (e) => {
 
   if (inputName === 'name-input' && input.value.length > 0 && input.value.length < 3) {
     if (input.getAttribute('class') !== 'error') {
-      appendErrorMessageToElement(input, 'Name needs more than 3 letters.')
+      appendErrorMessageToElement(input, 'Nome precisa conter mais de 3 letras.')
     }
   } else if (inputName === 'cpf-input' && input.value.length > 0 && input.value.length !== 11) {
     if (input.getAttribute('class') !== 'error') {
-      appendErrorMessageToElement(input, 'CPF can only contain 11 digits.')
+      appendErrorMessageToElement(input, 'CPF deve ter 11 digitos.')
     }
   } else if (inputName === 'phone-input' && input.value.length > 0 && !(/^\d+$/.test(input.value))) {
     if (input.getAttribute('class') !== 'error') {
-      appendErrorMessageToElement(input, 'Invalid phone number.')
+      appendErrorMessageToElement(input, 'Número de telefone inválido.')
     }
   } else if (inputName === 'email-input' && input.value.length > 0 && !validateEmail(input.value)) {
     if (input.getAttribute('class') !== 'error') {
-      appendErrorMessageToElement(input, 'Invalid email.')
+      appendErrorMessageToElement(input, 'Email inválido.')
     }
   } else if (input.getAttribute('class') === 'error') {
     input.classList.remove('error')

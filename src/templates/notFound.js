@@ -1,3 +1,3 @@
 export default () => {
-  return "<h2>Page not found</h2><a href='#registerUser'>Return to register page</a>"
+  return "<h2>Página não encontrada</h2><a href='#registerUser'>Retornar pra página de Registros</a>"
 }
