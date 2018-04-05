@@ -1,5 +1,8 @@
 # Front Easy I.
 
+> A simple front end project where the user can register as many times as he wants, see the list of users registered, select one, edit or delete profile.
+This project has form validation, spinner in the button when clicked, users localStorage, responsive layout, etc.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for 
