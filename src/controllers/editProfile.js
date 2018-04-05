@@ -57,7 +57,9 @@ let EditProfile = function (params) {
 
   this.registerEventListener = () => {
     document['user-register'].addEventListener('submit', this.editUser)
-    document.getElementsByTagName('form')[0].addEventListener('blur', utils.inputLostFocus, true)
+    for (let i = 0; i < document.getElementsByTagName('input').length; i++) {
+      document.getElementsByTagName('input')[i].addEventListener('input', utils.inputLostFocus, true)
+    }
     document.querySelector('footer button#edit').addEventListener('click', this.editUser)
     document.querySelector('footer button#delete').addEventListener('click', this.removeUser)
   }
