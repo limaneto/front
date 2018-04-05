@@ -56,7 +56,11 @@ let verifyRegisterForm = (e) => {
     input.parentNode.lastElementChild.remove()
   }
 
-  document.querySelector('form > footer > button').disabled = !shouldEnableButton()
+  if (document.querySelectorAll('footer button')) {
+    for(let i = 0; i < document.querySelectorAll('footer button').length; i++) {
+      document.querySelectorAll('footer button')[i].disabled = !shouldEnableButton()
+    }
+  }
 }
 
 let shouldEnableButton = () => {
