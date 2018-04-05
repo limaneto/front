@@ -26,3 +26,4 @@ I used an aside project that can be found at the following url: https://github.c
 Vanilla Javascript with help of:
 * [NodeJS](https://nodejs.org/) - JavaScript runtime built on Chrome's V8 JavaScript engine
 * [Webpack](https://webpack.js.org/) - Module bundler for web projects.
+* [SASS](https://sass-lang.com/) - CSS preprocessor.
