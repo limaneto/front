@@ -3,7 +3,7 @@ export default (usersArray) => {
   usersArray.forEach((user) => {
     temp += `<div data-id="` + user.email + `"><label>` + user.name + `</label></div>`
   })
-  temp += `</ul>`
+  temp += `<a href="#registerUser">Register User</a>`
 
   return temp
 }
